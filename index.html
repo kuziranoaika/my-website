@@ -36,7 +36,6 @@
     font-family: 'Courier New', 'MS Gothic', monospace;
   }
 
-  /* ============ ヘッダー ============ */
   #site-header {
     background: var(--card);
     border-bottom: 1px solid var(--border);
@@ -93,7 +92,6 @@
   }
   nav#main-nav a:hover::after { width: 100%; }
 
-  /* ============ 月（裏ページ） ============ */
   #moon-header {
     display: none; width: 100%; text-align: center; padding: 28px 0 4px;
     font-size: 6rem; line-height: 1;
@@ -102,7 +100,6 @@
   }
   body.dark #moon-header { display: block; }
 
-  /* ============ メイン ============ */
   #main { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
   body.dark #main { padding-top: 24px; }
 
@@ -148,7 +145,6 @@
   .btn:hover { opacity: 0.85; }
   body.dark .btn { background: #00ff41; color: #000; border-radius: 0; }
 
-  /* ============ うさぎカード ============ */
   .bunny-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
   .bunny-card {
     background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
@@ -156,9 +152,45 @@
     transition: transform 0.25s, box-shadow 0.25s;
   }
   .bunny-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(120,90,50,0.12); }
+  .bunny-face { font-size: 3rem; margin-bottom: 10px; }
   .bunny-name { font-weight: bold; font-size: 1.05rem; color: var(--accent-deep); letter-spacing: 2px; margin-bottom: 6px; }
 
-  /* ============ ノート再現 ============ */
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
+  .menu-photo {
+    border-radius: 12px; overflow: hidden; position: relative;
+    box-shadow: 0 4px 14px rgba(100,70,40,0.15);
+    transition: transform 0.25s;
+  }
+  .menu-photo:hover { transform: translateY(-3px); }
+  .menu-visual {
+    height: 170px; display: flex; align-items: center; justify-content: center;
+    font-size: 4.2rem; position: relative;
+  }
+  .menu-plaque {
+    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+    background: rgba(255,253,246,0.93); border: 1px solid #d9c5a5;
+    border-radius: 8px; padding: 7px 18px; text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12); min-width: 160px;
+  }
+  .menu-plaque .m-name { font-size: 0.85rem; color: #6b5232; font-weight: bold; letter-spacing: 1px; }
+  .menu-plaque .m-en { font-size: 0.62rem; color: #a8906e; letter-spacing: 0.5px; font-family: serif; font-style: italic; }
+  .menu-plaque .m-price { font-size: 0.9rem; color: #8a6342; font-family: 'Shippori Mincho', serif; }
+  .new-badge {
+    position: absolute; top: 10px; left: 10px; background: #a0714a; color: #fff;
+    border-radius: 50%; width: 46px; height: 46px; display: flex; align-items: center;
+    justify-content: center; font-size: 0.7rem; letter-spacing: 1px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 2;
+  }
+  .v-tea { background: linear-gradient(135deg, #3d2b1f 0%, #7a5230 55%, #c9954e 100%); }
+  .v-latte { background: linear-gradient(135deg, #e8d9c3 0%, #c89f6e 60%, #a0714a 100%); }
+  .v-moon { background: linear-gradient(135deg, #1a2238 0%, #2e3a5c 60%, #5a4a7a 100%); }
+  .v-milk { background: linear-gradient(135deg, #e8f0f8 0%, #ffffff 50%, #dce8f5 100%); }
+  .v-carrot { background: linear-gradient(135deg, #e8893a 0%, #f5a94e 60%, #d97326 100%); }
+  .v-pancake { background: linear-gradient(135deg, #2a3050 0%, #c9a35e 60%, #f0d9a8 100%); }
+  .v-cookie { background: linear-gradient(135deg, #fdf3ec 0%, #f7e3d8 50%, #f0d4c8 100%); }
+  .v-waffle { background: linear-gradient(135deg, #d9b88a 0%, #c49a66 50%, #ead9b8 100%); }
+  .v-tart { background: linear-gradient(135deg, #fdf8f0 0%, #f5e8d5 50%, #e8d5b8 100%); }
+
   .notebook {
     background: linear-gradient(135deg, #f5edda 0%, #f9f3e4 50%, #f2e9d4 100%);
     border: 1px solid #d9c9a5; border-radius: 6px;
@@ -183,8 +215,16 @@
     margin-right: 8px; color: #5a4a32;
   }
   .nb-doodle { text-align: right; font-size: 1rem; opacity: 0.75; }
+  .nb-margin {
+    position: absolute; bottom: 8px; right: 14px; font-size: 0.95rem; opacity: 0.55;
+    transform: rotate(-8deg);
+  }
+  .file-label {
+    position: absolute; top: 7px; left: 10px;
+    font-family: 'Courier New', monospace; font-size: 0.68rem;
+    color: #a89878; letter-spacing: 0.5px; opacity: 0.85; z-index: 2;
+  }
 
-  /* ============ ブログ・ノート引用 ============ */
   .blog-entry { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; margin-bottom: 28px; }
   body.dark .blog-entry { border-color: #00ff41; }
   .blog-date { font-size: 0.78rem; color: #b0a088; margin-bottom: 8px; letter-spacing: 1px; }
@@ -195,7 +235,6 @@
   }
   body.dark .note-quote { background: #0a0a0a; border-color: #00ff41; font-family: monospace; }
 
-  /* ============ ターミナル ============ */
   .terminal {
     background: #000; color: #00ff41; font-family: 'Courier New', monospace;
     padding: 32px 28px; border: 1px solid #00ff41; font-size: 0.9rem;
@@ -220,6 +259,8 @@
   .back-btn:hover { background: #001a00; }
   .err { color: #ff4444; }
   .sys { color: #888; font-size: 0.8rem; }
+  .kw { color: #ffd24a; }
+  .noel { color: #7ab8ff; }
 
   .form-field { margin-bottom: 16px; }
   .form-field label { display: block; font-size: 0.85rem; margin-bottom: 6px; color: #00ff41; }
@@ -239,7 +280,6 @@
     filter: drop-shadow(0 0 20px #aaa) drop-shadow(0 0 60px #666);
   }
 
-  /* ============ ページ番号 ============ */
   #page-indicator {
     position: fixed; bottom: 16px; right: 18px; z-index: 60;
     background: var(--card); border: 1px solid var(--border);
@@ -252,7 +292,6 @@
     border-radius: 0; font-family: monospace;
   }
 
-  /* ============ メモ帳 ============ */
   #memo-panel {
     position: fixed; top: 0; right: -340px; width: 320px; height: 100vh;
     background: var(--card); border-left: 1px solid var(--border);
@@ -278,7 +317,6 @@
   body.dark .memo-page-no { color: #555; }
   .memo-empty { font-size: 0.82rem; color: #b0a088; }
 
-  /* ============ トースト ============ */
   #toast {
     position: fixed; bottom: 60px; left: 50%; transform: translateX(-50%) translateY(20px);
     background: var(--accent-deep); color: #fff; padding: 12px 28px;
@@ -336,7 +374,7 @@
   <div id="memo-list"></div>
 </div>
 
-<div id="page-indicator">1/50</div>
+<div id="page-indicator">1/42</div>
 <div id="toast"></div>
 
 <!-- ==================== 表ページ ==================== -->
@@ -384,22 +422,22 @@
   <h2>うさぎたちを紹介します</h2>
   <div class="bunny-grid">
     <div class="bunny-card" onclick="goTo(3.1)">
-      <img src="images/lapi.png" alt="ラピ" style="width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+      <div class="bunny-face">🐇</div>
       <div class="bunny-name">ラピ</div>
       <p style="font-size:0.8rem;">真面目・几帳面</p>
     </div>
     <div class="bunny-card" onclick="goTo(4)">
-      <img src="images/mocha.png" alt="モカ" style="width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+      <div class="bunny-face">🐰</div>
       <div class="bunny-name">モカ</div>
       <p style="font-size:0.8rem;">のんびり・昼寝好き</p>
     </div>
     <div class="bunny-card" onclick="goTo(5)">
-      <img src="images/kinako.png" alt="きなこ" style="width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+      <div class="bunny-face">🐇</div>
       <div class="bunny-name">きなこ</div>
       <p style="font-size:0.8rem;">好奇心旺盛</p>
     </div>
     <div class="bunny-card" onclick="goTo(6)">
-      <img src="images/noel.png" alt="ノエル" style="width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+      <div class="bunny-face">🐰</div>
       <div class="bunny-name">ノエル</div>
       <p style="font-size:0.8rem;">物静か・繊細</p>
     </div>
@@ -410,11 +448,8 @@
 <template id="tpl-3.1">
 <div class="card">
   <h2>🐇 ラピ</h2>
-  <div style="text-align:center; margin-bottom: 20px;">
-    <img src="images/lapi.png" alt="ラピ" style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: var(--shadow);">
-  </div>
-  <p>4羽の中でいちばん真面目で几帳面。朝が来ると必ずケージの隅から隅まで確認して回ります。お気に入りの場所は窓際。お客様がいるとそっと寄り添います。</p>
-  <p>警戒しているときは後ろ足で地面を強くたたく「足ダン（スタンピング）」をします。最近そのスタンピングが増えているような……？</p>
+  <p>4羽の中でいちばん真面目で几帳面。まるで現場をまとめる責任者のように、朝が来ると必ずケージの隅から隅まで確認して回ります。お気に入りの場所は窓際。大好物は<b>にんじん</b>で、にんじん模様のおもちゃまで大事に抱えています。</p>
+  <p>警戒や不満があるときは後ろ足で地面を強くたたく「足ダン（スタンピング）」をします。最近そのスタンピングが増えているような……？ しかも、なぜかいつも満月ノートのほうを向いて。</p>
   <button class="btn" onclick="goTo(3)">← うさぎたち一覧へ</button>
 </div>
 </template>
@@ -422,10 +457,8 @@
 <template id="tpl-4">
 <div class="card">
   <h2>🐰 モカ</h2>
-  <div style="text-align:center; margin-bottom: 20px;">
-    <img src="images/mocha.png" alt="モカ" style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: var(--shadow);">
-  </div>
   <p>ふわふわのロップイヤー。名前の通りカフェオレ色のコートが自慢です。一日の半分は夢の中。撫でられながら寝落ちするのが得意技。</p>
+  <p>不思議なことに、満月の前の日だけはきびきびと動き回ります。スタッフの間では「モカの配達ごっこ」と呼ばれています。</p>
   <button class="btn" onclick="goTo(3)">← うさぎたち一覧へ</button>
 </div>
 </template>
@@ -433,10 +466,7 @@
 <template id="tpl-5">
 <div class="card">
   <h2>🐇 きなこ</h2>
-  <div style="text-align:center; margin-bottom: 20px;">
-    <img src="images/kinako.png" alt="きなこ" style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: var(--shadow);">
-  </div>
-  <p>淡いクリーム色のネザーランドドワーフ。好奇心の塊で、新しいおもちゃには真っ先に飛びつきます。ころころとした体型で、走り回る様子がたまらないかわいさ。</p>
+  <p>淡いクリーム色のネザーランドドワーフ。好奇心の塊で、新しいおもちゃには真っ先に飛びつきます。店内をくまなくパトロールして、落とし物を見つけるのも得意。まるで小さな調査員です。</p>
   <button class="btn" onclick="goTo(3)">← うさぎたち一覧へ</button>
 </div>
 </template>
@@ -444,21 +474,63 @@
 <template id="tpl-6">
 <div class="card">
   <h2>🐰 ノエル</h2>
-  <div style="text-align:center; margin-bottom: 20px;">
-    <img src="images/noel.png" alt="ノエル" style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: var(--shadow);">
-  </div>
   <p>グレーの毛並みのアンゴラミックス。物静かで、ほとんど鳴きません。でもお気に入りのお客様の前では小さく体を寄せてきます。冬生まれ。</p>
+  <p>いつもみんなを少し離れたところから、じっと見守っています。なにかを書き留めるみたいに。</p>
   <button class="btn" onclick="goTo(3)">← うさぎたち一覧へ</button>
 </div>
 </template>
 
 <template id="tpl-7">
 <div class="card">
-  <h2>メニュー</h2>
-  <div style="text-align: center; display: flex; flex-direction: column; gap: 24px;">
-    <img src="images/menu_collage.png" alt="ドリンクメニュー" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow);">
-    <img src="images/dessert_collage.png" alt="デザートメニュー" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow);">
+  <h2>ドリンクメニュー</h2>
+  <!-- 実画像差し替え用：<img src="/images/menu_drink.jpg" alt="ドリンクメニュー"> -->
+  <div class="menu-grid">
+    <div class="menu-photo">
+      <div class="menu-visual v-tea">🫖🌕</div>
+      <div class="menu-plaque"><div class="m-name">ハニーブッシュティー</div><div class="m-en">Honeybush Tea</div><div class="m-price">¥680</div></div>
+    </div>
+    <div class="menu-photo">
+      <div class="new-badge">NEW</div>
+      <div class="menu-visual v-latte">☕🐰</div>
+      <div class="menu-plaque"><div class="m-name">ハニーブッシュラテ</div><div class="m-en">Honeybush Latte</div><div class="m-price">¥780</div></div>
+    </div>
+    <div class="menu-photo">
+      <div class="menu-visual v-moon">🌕☕</div>
+      <div class="menu-plaque"><div class="m-name">月のカフェオレ</div><div class="m-en">Moon Café au Lait</div><div class="m-price">¥720</div></div>
+    </div>
+    <div class="menu-photo">
+      <div class="menu-visual v-milk">🥛🐇</div>
+      <div class="menu-plaque"><div class="m-name">うさぎミルク</div><div class="m-en">Rabbit Milk</div><div class="m-price">¥650</div></div>
+    </div>
+    <div class="menu-photo">
+      <div class="menu-visual v-carrot">🥕🧃</div>
+      <div class="menu-plaque"><div class="m-name">にんじんスムージー</div><div class="m-en">Carrot Smoothie</div><div class="m-price">¥750</div></div>
+    </div>
   </div>
+  <p style="font-size:0.78rem;color:#b0a088;margin-top:18px;">※にんじんスムージーはラピの大好物のにんじんをイメージ。うさぎたちには内緒です。</p>
+</div>
+<div class="card">
+  <h2>フードメニュー</h2>
+  <!-- 実画像差し替え用：<img src="/images/menu_food.jpg" alt="フードメニュー"> -->
+  <div class="menu-grid">
+    <div class="menu-photo">
+      <div class="menu-visual v-pancake">🥞🌕</div>
+      <div class="menu-plaque"><div class="m-name">満月パンケーキ</div><div class="m-en">Full Moon Pancake</div><div class="m-price">¥980</div></div>
+    </div>
+    <div class="menu-photo">
+      <div class="menu-visual v-cookie">🍪🐰</div>
+      <div class="menu-plaque"><div class="m-name">うさぎクッキー</div><div class="m-en">Rabbit Cookies</div><div class="m-price">¥380</div></div>
+    </div>
+    <div class="menu-photo">
+      <div class="menu-visual v-waffle">🧇🍓</div>
+      <div class="menu-plaque"><div class="m-name">バスケットワッフル</div><div class="m-en">Basket Waffle</div><div class="m-price">¥850</div></div>
+    </div>
+    <div class="menu-photo">
+      <div class="menu-visual v-tart">🥧🥝</div>
+      <div class="menu-plaque"><div class="m-name">季節のタルト</div><div class="m-en">Seasonal Tart</div><div class="m-price">¥780</div></div>
+    </div>
+  </div>
+  <p style="font-size:0.78rem;color:#b0a088;margin-top:20px;">※アレルギーのある方はスタッフへお声がけください。</p>
 </div>
 <div class="card">
   <h2>ご利用案内</h2>
@@ -490,7 +562,7 @@
   </div>
   <div class="blog-entry">
     <p><b>Q：うさぎが足を踏み鳴らしているのはなぜ？</b></p>
-    <p>A：「足ダン（スタンピング）」といって、うさぎが危険を感じたとき・驚いたとき・不満なときに後ろ足で地面を強くたたく行動です。怒っているサインでもあります。音が大きいほど気持ちが強い状態です。</p>
+    <p>A：「足ダン（スタンピング）」といって、うさぎが危険を感じたとき・驚いたとき・不満なときに後ろ足で地面を強くたたく行動です。怒っているサインでもあります。音が大きいほど気持ちが強い状態です。何かを必死に伝えようとしている、という説もあるんですよ。</p>
   </div>
   <div class="blog-entry">
     <p><b>Q：子どもも入れますか？</b></p>
@@ -517,6 +589,7 @@
   </div>
 
   <h3>ある日のノートより</h3>
+  <!-- 実画像差し替え用：<img src="/images/note_spread.jpg" alt="満月ノート"> -->
   <div class="notebook">
     <div class="nb-cols">
       <div>
@@ -532,8 +605,9 @@
         <div class="nb-entry"><span class="nb-num">8</span>いつもハニーブッシュティーに癒されています。明日は大切な日。期待しすぎないようにしようと思います。今日はもう寝よう。<div class="nb-doodle">🐇</div></div>
       </div>
     </div>
+    <span class="nb-margin">🥕…？</span>
   </div>
-  <p style="font-size:0.78rem;color:#b0a088;margin-top:14px;">※掲載許可をいただいた書き込みのみご紹介しています。</p>
+  <p style="font-size:0.78rem;color:#b0a088;margin-top:14px;">※掲載許可をいただいた書き込みのみご紹介しています。余白の落書きはどなたのものでしょう…？</p>
 </div>
 </template>
 
@@ -566,7 +640,7 @@
   <p><b>11月12日（火）満月観賞会</b> — 窓際席でハーブティーを飲みながら月を眺めよう。予約優先。</p>
   <p><b>12月24日（火）クリスマスナイト</b> — 特別メニューと記念撮影フレームをご用意。</p>
   <p><b>毎月15日前後 バースデーイベント</b> — お誕生日のお客様に満月クッキープレゼント。</p>
-  <p style="margin-top:16px;"><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(22)">→ 前回の満月観賞会レポートはこちら</a></p>
+  <p style="margin-top:16px;"><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(22)">→ 前回（10月11日）の満月観賞会レポートはこちら</a></p>
 </div>
 </template>
 
@@ -582,6 +656,7 @@
 <template id="tpl-15">
 <div class="card">
   <h2>お知らせ一覧</h2>
+  <p>🗓 11月5日（水）：常連のお客様より心温まるお手紙をいただきました。スタッフブログでご紹介しています。</p>
   <p>🗓 10月12日（土）：営業時間を18:00までに短縮します。</p>
   <p>🗓 10月11日（金）：満月観賞会開催。窓際席は満席になりました。ありがとうございます。</p>
   <p>🗓 10月1日（火）：新メニュー「ハニーブッシュラテ」販売開始。</p>
@@ -597,8 +672,9 @@
   </div>
   <div class="blog-entry">
     <div class="blog-date">10月10日</div>
-    <p>今日はラピちゃんが満月ノートに向かって激しい足ダンをしていました！！怒ってる？何かに不満がある？原因不明です……（ゆか）</p>
+    <p>今日はラピちゃんが満月ノートに向かって激しい足ダンをしていました！！怒ってる？ノートに何か不満が？ それとも大好物を取られたときみたいな顔にも見えるけど……原因不明です（ゆか）</p>
   </div>
+  <p><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(22)">→ 10月11日 満月観賞会レポート</a></p>
   <p><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(17)">→ 次の記事へ</a></p>
 </div>
 </template>
@@ -608,7 +684,11 @@
   <h2>スタッフブログ</h2>
   <div class="blog-entry">
     <div class="blog-date">10月12日</div>
-    <p>ノエルも落ち着かない様子です。いつもの静かな子が、昨日からずっとそわそわ。明日の満月観賞会のせいかな？……ん、昨日だったっけ。（れん）</p>
+    <p>ノエルも落ち着かない様子です。いつもの静かな子が、昨日からずっとそわそわ。満月観賞会のせいかな？（れん）</p>
+  </div>
+  <div class="blog-entry">
+    <div class="blog-date">10月14日</div>
+    <p>ラピちゃんとノエルのそわそわ、まだ続いています。何か感じているんでしょうか。うさぎって不思議ですよね……（みなみ）</p>
   </div>
   <p><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(18)">→ 次の記事へ</a></p>
 </div>
@@ -618,10 +698,31 @@
 <div class="card">
   <h2>スタッフブログ</h2>
   <div class="blog-entry">
-    <div class="blog-date">10月14日</div>
-    <p>ラピちゃんとノエルのそわそわ、まだ続いています。何か感じているんでしょうか。うさぎって不思議ですよね……（みなみ）</p>
+    <div class="blog-date">10月16日</div>
+    <p>満月ノート、いっぱいになりました！たくさん書いてくださってありがとうございます。新しいノートを設置しました。みなさんの想いが月に届くといいですね。🌕（みなみ）</p>
+    <p style="font-size:0.88rem;">それと、ちょっと不思議なことが。ノートの写真をアップしたら、ファイル名が勝手に知らない英単語に変わってたんです。誰かのいたずら？ 英語っぽいけど、なんだか野菜の名前みたいな……？</p>
   </div>
-  <p><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(19)">→ 次の記事へ</a></p>
+  <!-- 実画像差し替え用：<img src="/images/carrot.jpg" alt="満月ノート"> -->
+  <div class="notebook" style="margin-top:8px;">
+    <span class="file-label">carrot.jpg</span>
+    <div class="nb-cols">
+      <div>
+        <div class="nb-entry"><span class="nb-num">1</span>モカちゃんのお昼寝姿に癒されました〜！また絶対来ます！<div class="nb-doodle">✿✿</div></div>
+        <div class="nb-entry"><span class="nb-num">2</span>落ち着いた空間で仕事の疲れが吹き飛びました。うさぎカレー、スパイスが効いてて美味しかったです。</div>
+        <div class="nb-entry"><span class="nb-num">3</span>きなこちゃんの毛並み最高。うちでもウサギ飼いたくなっちゃった。♡<div class="nb-doodle">🐰</div></div>
+        <div class="nb-entry"><span class="nb-num">4</span>彼氏と一緒に来ました♡ 月のカフェオレのラテアート可愛すぎ！ずっと一緒にいられますように。<div class="nb-doodle">♡♡♡</div></div>
+      </div>
+      <div>
+        <div class="nb-entry"><span class="nb-num">5</span>ノエルくん、隅っこでじっとしてて可愛かった（笑）明日からまた学校がんばるぞー</div>
+        <div class="nb-entry"><span class="nb-num">6</span>初めて来ました！美味しいケーキと可愛いウサギたち、最高の休日になりました。<div class="nb-doodle">☆✩</div></div>
+        <div class="nb-entry"><span class="nb-num">7</span>友人の勧めで来店。静かで居心地の良いカフェですね。ごちそうさまでした。<div class="nb-doodle">🌿</div></div>
+        <div class="nb-entry"><span class="nb-num">8</span>いつもハニーブッシュティーに癒されています。明日は大切な日。期待しすぎないようにしようと思います。今日はもう寝よう。<div class="nb-doodle">🐇</div></div>
+      </div>
+    </div>
+    <span class="nb-margin">🥕 ｶﾞｼﾞｶﾞｼﾞ…</span>
+  </div>
+  <p style="font-size:0.8rem;color:#b0a088;margin-top:10px;">よく見ると余白に齧り跡と、にんじんの落書き。ラピちゃんの仕業…？ 気になることは右上の検索窓でいつでも調べてみてくださいね。</p>
+  <p style="margin-top:18px;"><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(19)">→ 次の記事へ</a></p>
 </div>
 </template>
 
@@ -629,10 +730,42 @@
 <div class="card">
   <h2>スタッフブログ</h2>
   <div class="blog-entry">
-    <div class="blog-date">11月1日</div>
+    <div class="blog-date">10月17日</div>
+    <p>ラピちゃんが過去最大の足ダンをしている。ドン！ドン！ドン！って部屋中に響いてます。一体何が起きているんでしょう？？（ゆか）</p>
+  </div>
+  <p><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(20)">→ 次の記事へ</a></p>
+</div>
+</template>
+
+<template id="tpl-20">
+<div class="card">
+  <h2>スタッフブログ</h2>
+  <div class="blog-entry">
+    <div class="blog-date">11月5日</div>
+    <p>常連のお客様から、心のこもったお手紙が届きました。一部をご紹介させていただきます。</p>
+  </div>
+  <div class="note-quote">
+    <p>「ご報告です。先月の10月12日、入籍しました。<br>
+    新しい苗字にもそろそろ慣れてきました。<br>
+    あの夜、窓際の席で月を見ながら過ごした時間は、一生の宝物です。<br>
+    またハニーブッシュティーを飲みに伺いますね。 ——ふじい」</p>
+  </div>
+  <div style="background:#f5ede0;border-radius:8px;padding:14px;margin:12px 0;text-align:center;">
+    <p style="font-size:2rem;margin-bottom:4px;">💌👜</p>
+    <p style="font-size:0.78rem;color:#999;">お手紙と一緒に、思い出の品の写真も。あの青いリボンのバッグ、覚えています！</p>
+  </div>
+  <p>幸せのおすそ分けをいただいた気分です。おめでとうございます！（みなみ）</p>
+  <p><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(21)">→ 次の記事へ</a></p>
+</div>
+</template>
+
+<template id="tpl-21">
+<div class="card">
+  <h2>スタッフブログ</h2>
+  <div class="blog-entry">
+    <div class="blog-date">11月11日</div>
     <p>明日は満月観賞会です。窓際席のご予約もいただいています。楽しみ！（ゆか）</p>
   </div>
-  <p><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(23)">→ 次の記事へ</a></p>
 </div>
 </template>
 
@@ -648,200 +781,166 @@
 </div>
 </template>
 
-<template id="tpl-23">
-<div class="card">
-  <h2>スタッフブログ</h2>
-  <div class="blog-entry">
-    <div class="blog-date">10月16日</div>
-    <p>満月ノート、いっぱいになりました！たくさん書いてくださってありがとうございます。新しいノートを設置しました。みなさんの想いが月に届くといいですね。🌕（みなみ）</p>
-  </div>
-  <div style="text-align:center; margin-top: 24px;">
-    <img src="images/carrot.png" alt="満月ノート" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: var(--shadow);">
-  </div>
-  <p style="margin-top:18px;"><a style="text-decoration:underline;cursor:pointer;color:var(--accent-deep);" onclick="goTo(25)">→ 次の記事へ</a></p>
-</div>
-</template>
-
-<template id="tpl-25">
-<div class="card">
-  <h2>スタッフブログ</h2>
-  <div class="blog-entry">
-    <div class="blog-date">10月17日</div>
-    <p>ラピちゃんが過去最大の足ダンをしている。ドン！ドン！ドン！って部屋中に響いてます。一体何が起きているんでしょう？？（ゆか）</p>
-  </div>
-</div>
-</template>
-
 <!-- ==================== 裏ページ ==================== -->
 
-<template id="tpl-26">
+<template id="tpl-23">
 <div class="terminal">
-  <p>██████████████████████████████████████</p>
-  <p>   【月光郵便局 業務ターミナル】</p>
-  <p>██████████████████████████████████████</p>
+  <p>━━━━━━━━━━━━━━━━━━━━</p>
+  <p>　　月光郵便局 業務ターミナル</p>
+  <p>　　記録管理者：ノエル</p>
+  <p>━━━━━━━━━━━━━━━━━━━━</p>
   <br>
   <p>アクセス承認。</p>
   <p>当月の業務ログが保存されています。</p>
+  <p class="sys">※本ターミナルの全記録は記録担当が管理しています。</p>
   <br>
-  <p>[ 参照可能ログ一覧 ]</p>
-  <p>
-    <span class="log-link" onclick="termCmd('回収')">回収</span>
-    <span class="log-link" onclick="termCmd('配送')">配送</span>
-    <span class="log-link" onclick="termCmd('満月便')">満月便</span>
-    <span class="log-link" onclick="termCmd('会議')">会議</span>
-    <span class="log-link" onclick="termCmd('当選')">当選</span>
-    <span class="log-link" onclick="termCmd('異常')">異常</span>
-    <span class="log-link" onclick="termCmd('空欄')">空欄</span>
-    <span class="log-link" onclick="termCmd('捜索')">捜索</span>
-    <span class="log-link" onclick="termCmd('緊急会議')">緊急会議</span>
-  </p>
+  <p>[ 参照可能ログ ]</p>
+  <p id="term-links"></p>
+  <p class="sys">※ログ本文中に現れる<span class="kw">黄色の語</span>は、コマンドとして入力すると関連記録を参照できます。</p>
   <br>
   <p>[ コマンド入力 ]</p>
-  <p class="prompt"><input id="cmd-input" class="cmd-input" type="text" placeholder="コマンドを入力...">
+  <p class="prompt"><input id="cmd-input" class="cmd-input" type="text" placeholder="ログ名を入力...">
   <button class="btn" onclick="runCmd()">実行</button></p>
   <div id="cmd-result" style="margin-top:12px;"></div>
 </div>
 </template>
 
-<template id="tpl-27">
+<template id="tpl-24">
 <div class="terminal">
-  <p class="sys">LOG :: 回収レポート 10月分</p>
+  <p class="sys">LOG :: 回収レポート 10月分 ／ 記録：ノエル</p>
   <br>
   <p>回収数：47</p>
   <p>高純度個体：27</p>
-  <p>特別選定候補：あり</p>
-  <p>備考：今月は満月観賞会開催につき回収効率が上昇。</p>
+  <p>指揮：現場責任者 ラピ</p>
+  <p>特別選定候補：あり。詳細は<span class="kw">会議</span>記録を参照。</p>
   <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
+  <p class="sys">備考：特になし。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(23)">← ターミナルへ戻る</button>
+</div>
+</template>
+
+<template id="tpl-25">
+<div class="terminal">
+  <p class="sys">LOG :: 配送レポート ／ 記録：ノエル</p>
+  <br>
+  <p>担当：配送係 モカ</p>
+  <p>第105便、積み込み完了。発送済み。</p>
+  <p>本部受領を確認。ただし本部より<span class="kw">異常</span>の報告あり。</p>
+  <br>
+  <p class="sys">備考：モカの積み込みは今月も正確だった。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(23)">← ターミナルへ戻る</button>
+</div>
+</template>
+
+<template id="tpl-26">
+<div class="terminal">
+  <p class="sys">LOG :: 会議記録 ／ 記録：ノエル</p>
+  <br>
+  <p>議題：特別選定対象の確定</p>
+  <p>決定事項：識別番号 <span class="kw">10-11-045</span> を当月の特別選定対象とする。</p>
+  <p>同番号宛に<span class="kw">当選</span>通知を発行する。</p>
+  <p>承認：現場責任者 ラピ</p>
+  <br>
+  <p class="sys">備考：局長（ラピ）が落ち着かない様子。会議中、二度も窓を見た。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(23)">← ターミナルへ戻る</button>
+</div>
+</template>
+
+<template id="tpl-27">
+<div class="terminal">
+  <p class="sys">LOG :: 当選通知 ／ 記録：ノエル</p>
+  <br>
+  <p>識別番号：10-11-045</p>
+  <p>通知内容：当該Carrotを満月便にて昇月処理予定</p>
+  <p>配達結果：<span class="err">不能</span></p>
+  <p><span class="err">ERR_NOT_FOUND ：対象の識別情報が消失</span></p>
+  <p>対応：<span class="kw">捜索</span>班（きなこ）へ移管。</p>
+  <br>
+  <p class="sys">備考：本日も足ダンを確認。原因はまだ分からない。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(23)">← ターミナルへ戻る</button>
 </div>
 </template>
 
 <template id="tpl-28">
 <div class="terminal">
-  <p class="sys">LOG :: 配送レポート</p>
+  <p class="sys">LOG :: 異常報告 ／ 記録：ノエル</p>
   <br>
-  <p>配送準備完了。</p>
-  <p>第105便積み込み終了。</p>
-  <p>出発予定：次の満月</p>
+  <p><span class="err">ALERT</span></p>
+  <p>案件 10-11-045：識別情報欠損。</p>
+  <p>局長による緊急足ダン、計3回発生。</p>
+  <p>対応：<span class="kw">緊急会議</span>の招集が決定。</p>
   <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
+  <p class="sys">備考：ラピがずっと窓を見ている。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(23)">← ターミナルへ戻る</button>
 </div>
 </template>
 
 <template id="tpl-29">
 <div class="terminal">
-  <p class="sys">LOG :: 満月便レポート</p>
+  <p class="sys">LOG :: 捜索記録 ／ 記録：ノエル</p>
   <br>
-  <p>本部受領確認。</p>
-  <p>異常報告あり。</p>
-  <p>詳細は「異常」ログを参照。</p>
+  <p>担当：調査係 きなこ</p>
+  <p>人間界ログの再調査を開始。</p>
+  <p>手がかり：識別番号のみ。</p>
+  <p>進捗：<span style="color:#ff0;">進行中</span></p>
   <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
+  <p class="sys">備考：きなこは三日眠っていない。</p>
+  <p class="sys">　　　早く見つかるといい。</p>
+  <p class="sys">　　　たぶん大丈夫。たぶん。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(23)">← ターミナルへ戻る</button>
 </div>
 </template>
 
 <template id="tpl-30">
 <div class="terminal">
-  <p class="sys">LOG :: 会議記録</p>
+  <p class="sys">【緊急会議 記録010】 ／ 記録：ノエル</p>
   <br>
-  <p>特別選定対象確定。</p>
-  <p>識別番号：10-11-045</p>
-  <p>状態：処理待ち</p>
-  <p>担当局員：ラピ</p>
+  <p>古い規約を確認した。</p>
+  <p>極めて稀な事例として——</p>
+  <p>『対象が処理前に完了した場合』、記録が消失することがある。</p>
   <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
+  <p>本件の特例措置として、</p>
+  <p>該当Carrotの証拠データベース【ARCHIVE】へのアクセスを許可する。</p>
+  <br>
+  <p>アクセス鍵は、<b>本案件の識別番号</b>とする。</p>
+  <p class="sys">（番号は会議記録・当選通知に記載がある）</p>
+  <br>
+  <p class="sys">備考：私にできるのは、記録することだけ。</p>
+  <br>
+  <p>[ 識別番号入力 ]</p>
+  <p class="prompt"><input id="cmd-input-30" class="cmd-input" type="text" placeholder="識別番号を入力...">
+  <button class="btn" onclick="runCmd30()">照合</button></p>
+  <p id="err-30" class="err" style="margin-top:8px;"></p>
 </div>
 </template>
 
 <template id="tpl-31">
 <div class="terminal">
-  <p class="sys">LOG :: 当選通知</p>
+  <p class="sys">【証拠データベース】ARCHIVE ／ 管理：ノエル</p>
+  <p class="sys">案件 10-11-045 に関する抽出データ一覧</p>
   <br>
-  <p>識別番号：10-11-045</p>
-  <p>状態：<span class="err">異常</span></p>
-  <p><span class="err">ERR_NOT_FOUND</span></p>
-  <p>対象の識別情報が消失しています。</p>
+  <a class="file-link" onclick="goTo(32)">📁 10-11_event.jpg</a>
+  <a class="file-link" onclick="goTo(33)">📄 note_1011.txt</a>
+  <a class="file-link" onclick="goTo(34)">📄 blog_1105.txt</a>
+  <a class="file-link" onclick="goTo(35)">📁 lost_property.jpg</a>
+  <a class="file-link" onclick="goTo(36)">📄 err_not_found.log</a>
   <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
+  <div id="archive-progress" style="color:#888;font-size:0.8rem;margin-top:8px;"></div>
+  <div id="to-37-btn" style="display:none;margin-top:12px;">
+    <button class="back-btn" onclick="goTo(37)" style="border-color:#ff0;color:#ff0;">→ 案件ステータスを確認する</button>
+  </div>
 </div>
 </template>
 
 <template id="tpl-32">
 <div class="terminal">
-  <p class="sys">LOG :: 異常報告</p>
-  <br>
-  <p><span class="err">ALERT</span></p>
-  <p>識別情報欠損。</p>
-  <p>局長による緊急足ダン発生。</p>
-  <p>原因調査中。</p>
-  <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
-</div>
-</template>
-
-<template id="tpl-33">
-<div class="terminal">
-  <p class="sys">LOG :: 空欄データ</p>
-  <br>
-  <p>内容データ欠損。</p>
-  <p>原因不明。</p>
-  <p class="err">NULL / NULL / NULL</p>
-  <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
-</div>
-</template>
-
-<template id="tpl-34">
-<div class="terminal">
-  <p class="sys">LOG :: 捜索記録</p>
-  <br>
-  <p>対象特定作業開始。</p>
-  <p>人間界ログを再調査する。</p>
-  <p>進捗：<span style="color:#ff0;">進行中</span></p>
-  <br>
-  <button class="back-btn" onclick="goTo(26)">← ターミナルへ戻る</button>
-</div>
-</template>
-
-<template id="tpl-35">
-<div class="terminal">
-  <p class="sys">【会議記録010】アーカイブ解放</p>
-  <br>
-  <p>古い規約を確認。</p>
-  <p>極めて稀な事例として——</p>
-  <p>『対象が処理前に完了した場合』、記録が消失することがある。</p>
-  <br>
-  <p>本件の特例措置として、</p>
-  <p>該当Carrotの関連情報をまとめた証拠データベースへのアクセスを許可する。</p>
-  <br>
-  <p>[ コマンド入力 ]</p>
-  <p class="prompt"><input id="cmd-input-35" class="cmd-input" type="text" placeholder="ARCHIVEと入力...">
-  <button class="btn" onclick="runCmd35()">実行</button></p>
-</div>
-</template>
-
-<template id="tpl-36">
-<div class="terminal">
-  <p class="sys">【証拠データベース】ARCHIVE</p>
-  <p class="sys">案件 10-11-045 に関する抽出データ一覧</p>
-  <br>
-  <a class="file-link" onclick="goTo(37)">📁 10-11_event.jpg</a>
-  <a class="file-link" onclick="goTo(38)">📄 note_1011.txt</a>
-  <a class="file-link" onclick="goTo(39)">📄 blog_1105.txt</a>
-  <a class="file-link" onclick="goTo(40)">📁 lost_property.jpg</a>
-  <a class="file-link" onclick="goTo(41)">📄 err_not_found.log</a>
-  <br>
-  <div id="archive-progress" style="color:#888;font-size:0.8rem;margin-top:8px;"></div>
-  <div id="to-45-btn" style="display:none;margin-top:12px;">
-    <button class="back-btn" onclick="goTo(45)" style="border-color:#ff0;color:#ff0;">→ 案件ステータスを確認する</button>
-  </div>
-</div>
-</template>
-
-<template id="tpl-37">
-<div class="terminal">
-  <p class="sys">FILE :: 10-11_event.jpg</p>
-  <p class="sys">【システムログ】イベント当日画像解析結果</p>
+  <p class="sys">FILE :: 10-11_event.jpg ／ 解析：きなこ、記録：ノエル</p>
   <br>
   <div style="background:#050505;border:1px solid #1a3a1a;padding:20px;text-align:center;">
     <p style="font-size:3rem;">🪟🌕</p>
@@ -849,89 +948,93 @@
   </div>
   <br>
   <p>解析結果：</p>
-  <p>・左手で筆記</p>
-  <p>・青いリボンのバッグ所持</p>
+  <p>・<b>左手</b>で筆記</p>
+  <p>・<b>青いリボンのバッグ</b>を所持</p>
   <p>・識別番号 10-11-045 との一致：高</p>
   <br>
-  <button class="back-btn" onclick="goTo(36)">← ARCHIVEへ戻る</button>
+  <p class="sys">備考：人間は、なぜ月を見ながら書くのだろう。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(31)">← ARCHIVEへ戻る</button>
 </div>
 </template>
 
-<template id="tpl-38">
+<template id="tpl-33">
 <div class="terminal">
-  <p class="sys">FILE :: note_1011.txt</p>
-  <p class="sys">【システムログ】ノートデータ解析</p>
+  <p class="sys">FILE :: note_1011.txt ／ 記録：ノエル</p>
   <br>
   <p>日時：10月11日 19:45</p>
   <p>場所：窓際席</p>
   <p>注文：ハニーブッシュティー</p>
-  <p>筆跡：既存データと一致</p>
-  <p>筆記内容：<span class="err">データ欠損 / ERR_NOT_FOUND</span></p>
+  <p>筆跡：既存の常連データと一致</p>
+  <p>筆記内容：<span class="err">本文データ欠損 / ERR_NOT_FOUND</span></p>
   <br>
-  <button class="back-btn" onclick="goTo(36)">← ARCHIVEへ戻る</button>
+  <p class="sys">推定：内容は人間界に公開されたノートに残っている可能性。</p>
+  <p class="sys">　　　しかし我々には、どの書き込みか判別できない。</p>
+  <p class="sys">　　　（同時刻、同じ飲み物を頼んだ者の言葉を探せ）</p>
+  <br>
+  <button class="back-btn" onclick="goTo(31)">← ARCHIVEへ戻る</button>
 </div>
 </template>
 
-<template id="tpl-39">
+<template id="tpl-34">
 <div class="terminal">
-  <p class="sys">FILE :: blog_1105.txt</p>
-  <p class="sys">【外部データ検知】人間ブログ抜粋</p>
+  <p class="sys">FILE :: blog_1105.txt ／ 検知：きなこ、記録：ノエル</p>
   <br>
-  <p>検知日：11月5日</p>
-  <br>
-  <p>「常連のお客様から嬉しいお知らせが届きました。またお店に来てくださるそうです。」</p>
+  <p>【外部データ検知】11月5日</p>
+  <p>人間界のカフェ記録に、対象の所持品と一致する画像を検出。</p>
   <br>
   <div style="background:#050505;border:1px solid #1a3a1a;padding:14px;text-align:center;">
-    <p style="font-size:2rem;">👜</p>
-    <p style="font-size:0.78rem;color:#888;">添付画像：青いリボンのバッグ</p>
+    <p style="font-size:2rem;">💌👜</p>
+    <p style="font-size:0.78rem;color:#888;">一致：青いリボンのバッグ（一致率 高）</p>
   </div>
   <br>
-  <button class="back-btn" onclick="goTo(36)">← ARCHIVEへ戻る</button>
+  <p>本文解析：<span class="err">不能</span></p>
+  <p class="sys">人間の言葉の意味が、我々には分からない。</p>
+  <p class="sys">原文は人間界ページ「スタッフブログ 11月5日」に残っている。</p>
+  <p class="sys">読める者が、読むべきだ。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(31)">← ARCHIVEへ戻る</button>
 </div>
 </template>
 
-<template id="tpl-40">
+<template id="tpl-35">
 <div class="terminal">
-  <p class="sys">FILE :: lost_property.jpg</p>
-  <p class="sys">【外部データ検知】忘れ物台帳 / 最新ノート</p>
+  <p class="sys">FILE :: lost_property.jpg ／ 検知：きなこ、記録：ノエル</p>
   <br>
-  <p>忘れ物台帳（4月12日）：</p>
-  <p> 品名：青いリボンのバッグ</p>
-  <p> 持ち主：<b>Y.Y</b></p>
+  <p>【外部データ検知】カフェ忘れ物台帳（4月12日付）</p>
   <br>
-  <p>最新ノート抜粋：</p>
-  <div style="border-left:2px solid #00ff41;padding-left:12px;color:#c8ffc8;margin:10px 0;">
-    <p>「先月10月12日に入籍しました！</p>
-    <p>苗字が『藤井』に変わりましたが、</p>
-    <p>またお茶しに行きますね（ふじい）」</p>
-  </div>
-  <p class="err">→ 識別名：Y.Y → 藤井Y（姓変更確認）</p>
+  <p>　品名：青いリボンのバッグ</p>
+  <p>　持ち主：<b>Y.Y</b>（後日返却済み）</p>
   <br>
-  <button class="back-btn" onclick="goTo(36)">← ARCHIVEへ戻る</button>
+  <p class="sys">備考：対象の登録識別名は、この台帳から取得したものだった。</p>
+  <p class="sys">　　　きなこが見つけてきた。よくやったと思う。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(31)">← ARCHIVEへ戻る</button>
 </div>
 </template>
 
-<template id="tpl-41">
+<template id="tpl-36">
 <div class="terminal">
-  <p class="sys">FILE :: err_not_found.log</p>
-  <p class="sys">【システムエラーログ】</p>
+  <p class="sys">FILE :: err_not_found.log ／ 記録：ノエル</p>
   <br>
   <p class="err">ERR_NOT_FOUND</p>
   <p class="err">ERR_NOT_FOUND</p>
   <p class="err">ERR_NOT_FOUND</p>
   <br>
-  <p>識別対象消失。</p>
-  <p>理由：不明</p>
-  <p>推定：対象が処理前に状態を変化させた可能性。</p>
-  <p>我々には判断できない。</p>
+  <p>登録識別名「Y.Y」——人間界の現在記録に、該当なし。</p>
+  <p>10月12日を境に、信号が途絶えている。</p>
   <br>
-  <button class="back-btn" onclick="goTo(36)">← ARCHIVEへ戻る</button>
+  <p class="sys">人間の名前は、変わることがあるのだろうか。</p>
+  <p class="sys">何があれば、名前は変わるのだろう。</p>
+  <p class="sys">我々には、分からない。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(31)">← ARCHIVEへ戻る</button>
 </div>
 </template>
 
-<template id="tpl-45">
+<template id="tpl-37">
 <div class="terminal">
-  <p class="sys">【案件ステータス】</p>
+  <p class="sys">【案件ステータス】 ／ 記録：ノエル</p>
   <br>
   <p>案件番号：10-11-045</p>
   <p>状態：<span class="err">未解決</span></p>
@@ -940,11 +1043,14 @@
   <p>人間のことは、</p>
   <p>よく分からない。</p>
   <br>
-  <button class="back-btn" onclick="goTo(46)">→ 続きを読む</button>
+  <p class="sys">それでも、記録だけは残しておく。</p>
+  <p class="sys">いつか、読める誰かのために。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(38)">→ 続きを読む</button>
 </div>
 </template>
 
-<template id="tpl-46">
+<template id="tpl-38">
 <div class="terminal">
   <p class="sys">【アクセス制限解除】</p>
   <br>
@@ -955,11 +1061,14 @@
   <br>
   <p>遥か遠い月の彼方からやってきた、「月のウサギ」の郵便局員です。</p>
   <br>
-  <button class="back-btn" onclick="goTo(47)">→ 続きを読む</button>
+  <p>ラピは現場責任者。モカは配送係。きなこは調査係。</p>
+  <p>そして——ここまでの記録をすべて書いてきたのは、記録係の私、ノエルです。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(39)">→ 続きを読む</button>
 </div>
 </template>
 
-<template id="tpl-47">
+<template id="tpl-39">
 <div class="terminal">
   <p class="sys">【Carrotとは】</p>
   <br>
@@ -969,11 +1078,11 @@
   <p>店内の「満月ノート」は、</p>
   <p>あなたの願いを月へ届けるための秘密のポストでした。</p>
   <br>
-  <button class="back-btn" onclick="goTo(48)">→ 続きを読む</button>
+  <button class="back-btn" onclick="goTo(40)">→ 続きを読む</button>
 </div>
 </template>
 
-<template id="tpl-48">
+<template id="tpl-40">
 <div class="terminal">
   <p class="sys">【真相】</p>
   <br>
@@ -986,19 +1095,25 @@
   <p>人間界の言葉も、複雑な関係の変化も、</p>
   <p>どうして願いが勝手に完了したのかも、理解できないのです。</p>
   <br>
-  <button class="back-btn" onclick="goTo(49)">→ 続きを読む</button>
+  <p class="sys">……ラピは、ずっと足ダンで「急げ」と言っていました。</p>
+  <p class="sys">私は、それを記録することしかできませんでした。</p>
+  <br>
+  <button class="back-btn" onclick="goTo(41)">→ 続きを読む</button>
 </div>
 </template>
 
-<template id="tpl-49">
+<template id="tpl-41">
 <div class="terminal">
-  <p class="sys">【人間協力員候補へ】</p>
+  <p class="sys">【人間協力員候補へ】 ／ 起案：ノエル</p>
   <br>
   <p>我々だけでは、このCarrotの持ち主を特定できませんでした。</p>
   <p>ここまで記録を読み解いたあなたなら、見つけられますか？</p>
   <br>
+  <p class="sys">手がかり：左手で筆記／青いリボンのバッグ／登録名 Y.Y／</p>
+  <p class="sys">　　　　　10月11日のノートの言葉／10月12日に何かが起きた</p>
+  <br>
   <div class="form-field">
-    <label>消えた持ち主の名前：</label>
+    <label>消えた持ち主の、今の名前：</label>
     <input type="text" id="ans-name" placeholder="名前を入力...">
   </div>
   <div class="form-field">
@@ -1007,11 +1122,11 @@
   </div>
   <br>
   <button class="btn" onclick="submitAnswer()">送信する</button>
-  <p id="ans-err" style="color:#ff4444;margin-top:10px;font-size:0.85rem;"></p>
+  <p id="ans-err" class="err" style="margin-top:10px;font-size:0.85rem;line-height:1.8;"></p>
 </div>
 </template>
 
-<template id="tpl-50">
+<template id="tpl-42">
 <div class="terminal">
   <div class="award">
     <p class="sys">【案件番号 10-11-045：解決】</p>
@@ -1020,7 +1135,8 @@
     <br>
     <p>あなたが導き出した答えにより、記録が完了しました。</p>
     <br>
-    <p>私たちの力を待たずとも、自らの力で願いを完了させていたのですね。</p>
+    <p>彼女は、私たちの力を待たずとも、</p>
+    <p>自らの力で願いを完了させていたのですね。</p>
     <p>人間の心は、月の論理よりもずっと強くて温かいみたいです。</p>
     <br>
     <p>ラピの足ダンもすっかり収まりました。</p>
@@ -1035,7 +1151,9 @@
     <p>これからも、人間の温かい願いを、</p>
     <p>私たちと一緒に見守ってください。</p>
     <br>
-    <p style="color:#00ff41;font-size:1.1rem;">🐇 ラピ 🐰 モカ 🐇 きなこ 🐰 ノエル</p>
+    <p style="color:#00ff41;font-size:1.1rem;">🐇 ラピ　🐰 モカ　🐇 きなこ　🐰 ノエル</p>
+    <br>
+    <p class="sys">（最後まで、私の記録を読んでくれてありがとう。——記録係 ノエル）</p>
   </div>
 </div>
 </template>
@@ -1047,42 +1165,40 @@
 <script>
   let currentPage = 1;
   let darkMode = false;
-  let memoData = []; // [{page, label}]
+  let archiveUnlocked = false;
+  let memoData = [];
   const visitedFiles = new Set();
-  const allFiles = [37,38,39,40,41];
+  const allFiles = [32,33,34,35,36];
+  const discoveredLogs = new Set(['回収','配送']);
+  const TOTAL = 42;
 
   const logMap = {
-    '回収': 27, '配送': 28, '満月便': 29, '会議': 30,
-    '当選': 31, '異常': 32, '空欄': 33, '捜索': 34, '緊急会議': 35
+    '回収': 24, '配送': 25, '会議': 26, '当選': 27,
+    '異常': 28, '捜索': 29, '緊急会議': 30
   };
 
   const pageNames = {
     1:'トップ', 2:'カフェについて', 3:'うさぎたち', 3.1:'ラピ', 4:'モカ', 5:'きなこ', 6:'ノエル',
     7:'メニュー', 8:'アクセス', 9:'よくある質問', 10:'満月ノート', 11:'バイト募集',
     12:'スタッフ紹介', 13:'イベント情報', 14:'ギャラリー', 15:'お知らせ',
-    16:'ブログ(10/8-10)', 17:'ブログ(10/12)', 18:'ブログ(10/14)', 19:'ブログ(11/1)',
-    22:'イベントレポート', 23:'ブログ(10/16 ノート)', 25:'ブログ(10/17 足ダン)',
-    26:'業務ターミナル', 27:'ログ:回収', 28:'ログ:配送', 29:'ログ:満月便', 30:'ログ:会議',
-    31:'ログ:当選', 32:'ログ:異常', 33:'ログ:空欄', 34:'ログ:捜索', 35:'緊急会議',
-    36:'ARCHIVE', 37:'10-11_event.jpg', 38:'note_1011.txt', 39:'blog_1105.txt',
-    40:'lost_property.jpg', 41:'err_not_found.log',
-    45:'案件ステータス', 46:'月光郵便局', 47:'Carrotとは', 48:'真相', 49:'協力要請', 50:'採用通知'
+    16:'ブログ(10/8-10)', 17:'ブログ(10/12-14)', 18:'ブログ(10/16 ノート)', 19:'ブログ(10/17 足ダン)',
+    20:'ブログ(11/5 お手紙)', 21:'ブログ(11/11)', 22:'イベントレポート(10/11)',
+    23:'業務ターミナル', 24:'ログ:回収', 25:'ログ:配送', 26:'ログ:会議', 27:'ログ:当選',
+    28:'ログ:異常', 29:'ログ:捜索', 30:'緊急会議',
+    31:'ARCHIVE', 32:'10-11_event.jpg', 33:'note_1011.txt', 34:'blog_1105.txt',
+    35:'lost_property.jpg', 36:'err_not_found.log',
+    37:'案件ステータス', 38:'月光郵便局', 39:'Carrotとは', 40:'真相', 41:'協力要請', 42:'採用通知'
   };
 
   /* ===== 保存処理（自前ホスティング時はlocalStorageに書き換え可） ===== */
   async function saveMemo() {
-    try {
-      await window.storage.set('moon_memo', JSON.stringify(memoData));
-    } catch (e) { /* 保存失敗時はメモリ内のみで継続 */ }
+    try { await window.storage.set('moon_memo', JSON.stringify(memoData)); } catch (e) {}
   }
   async function loadMemo() {
     try {
       const r = await window.storage.get('moon_memo');
-      if (r && r.value) {
-        memoData = JSON.parse(r.value);
-        renderMemoList();
-      }
-    } catch (e) { /* 初回は記録なし */ }
+      if (r && r.value) { memoData = JSON.parse(r.value); renderMemoList(); }
+    } catch (e) {}
   }
   async function deleteMemoStorage() {
     try { await window.storage.delete('moon_memo'); } catch (e) {}
@@ -1107,26 +1223,49 @@
     main.innerHTML = '';
     main.appendChild(div);
 
-    if (currentPage === 36) updateArchiveProgress();
-    if (currentPage >= 26 && !darkMode) enableDark();
+    if (currentPage === 23) renderTermLinks();
+    if (currentPage === 31) updateArchiveProgress();
+    if (currentPage >= 23 && !darkMode) enableDark();
 
     updateIndicator();
     window.scrollTo(0,0);
   }
 
   function updateIndicator() {
-    const n = Math.floor(currentPage);
-    document.getElementById('page-indicator').textContent = n + '/50';
+    document.getElementById('page-indicator').textContent = Math.floor(currentPage) + '/' + TOTAL;
   }
 
   function enableDark() {
     darkMode = true;
     document.body.classList.add('dark');
     document.getElementById('site-title').textContent = '[ 月光郵便局 ]';
-    document.getElementById('site-title').onclick = () => goTo(26);
+    document.getElementById('site-title').onclick = () => goTo(23);
     document.getElementById('main-nav').style.display = 'none';
-    document.getElementById('footer-text').textContent = '[ MOONLIGHT POST OFFICE SYSTEM ]';
+    document.getElementById('footer-text').textContent = '[ MOONLIGHT POST OFFICE SYSTEM / 記録管理者：ノエル ]';
     document.getElementById('search-input').placeholder = 'コマンド入力...';
+  }
+
+  /* ===== ターミナルのログリンク（発見済みのみ表示） ===== */
+  function renderTermLinks() {
+    const box = document.getElementById('term-links');
+    if (!box) return;
+    box.innerHTML = '';
+    discoveredLogs.forEach(name => {
+      const a = document.createElement('span');
+      a.className = 'log-link';
+      a.textContent = name;
+      a.onclick = () => execLog(name);
+      box.appendChild(a);
+    });
+    const hint = document.createElement('span');
+    hint.className = 'sys';
+    hint.textContent = '（未発見のログが ' + (Object.keys(logMap).length - discoveredLogs.size) + ' 件あります）';
+    box.appendChild(hint);
+  }
+
+  function execLog(name) {
+    discoveredLogs.add(name);
+    goTo(logMap[name]);
   }
 
   /* ===== 検索 ===== */
@@ -1134,16 +1273,49 @@
     const inp = document.getElementById('search-input');
     const val = inp.value.trim();
     inp.value = '';
-    if (val.toLowerCase() === 'carrot' || val.toLowerCase() === 'carrot.png') { goTo(26); return; }
-    if (darkMode) {
-      if (logMap[val]) { goTo(logMap[val]); return; }
-      if (val.toUpperCase() === 'ARCHIVE') { goTo(36); return; }
-      showToast('ERR: 認識できないコマンドです');
-      return;
-    }
+    if (val === '') return;
+    if (val.toLowerCase() === 'carrot') { goTo(23); return; }
+    if (darkMode) { handleCommand(val, null); return; }
     const map = {'ラピ':3.1,'らぴ':3.1,'モカ':4,'もか':4,'きなこ':5,'キナコ':5,'ノエル':6,'のえる':6};
     if (map[val] !== undefined) { goTo(map[val]); return; }
     showToast('「' + val + '」は見つかりませんでした');
+  }
+
+  /* ===== コマンド共通処理 ===== */
+  function handleCommand(val, resultEl) {
+    if (logMap[val]) { execLog(val); return; }
+    if (val.toUpperCase() === 'ARCHIVE') {
+      if (archiveUnlocked) { goTo(31); }
+      else {
+        const msg = 'ERR: アクセス権限がありません。緊急会議の記録を参照してください。';
+        if (resultEl) resultEl.innerHTML = '<p class="err">' + msg + '</p>';
+        else showToast(msg);
+      }
+      return;
+    }
+    const msg = 'ERR: コマンド「' + val + '」は認識されませんでした。';
+    if (resultEl) resultEl.innerHTML = '<p class="err">' + msg + '</p>';
+    else showToast(msg);
+  }
+
+  function runCmd() {
+    const inp = document.getElementById('cmd-input');
+    if (!inp) return;
+    handleCommand(inp.value.trim(), document.getElementById('cmd-result'));
+  }
+
+  /* ===== ARCHIVE解錠（識別番号照合） ===== */
+  function runCmd30() {
+    const inp = document.getElementById('cmd-input-30');
+    const err = document.getElementById('err-30');
+    if (!inp) return;
+    const digits = inp.value.replace(/[^0-9]/g, '');
+    if (digits === '1011045') {
+      archiveUnlocked = true;
+      goTo(31);
+    } else {
+      err.textContent = '照合失敗。本案件の識別番号は、会議記録または当選通知に記載されています。';
+    }
   }
 
   /* ===== メモ帳 ===== */
@@ -1166,7 +1338,7 @@
     memoData.forEach(m => {
       const d = document.createElement('div');
       d.className = 'memo-item';
-      d.innerHTML = '<span>' + m.label + '</span><span class="memo-page-no">' + Math.floor(m.page) + '/50</span>';
+      d.innerHTML = '<span>' + m.label + '</span><span class="memo-page-no">' + Math.floor(m.page) + '/' + TOTAL + '</span>';
       d.onclick = () => { goTo(m.page); };
       list.appendChild(d);
     });
@@ -1189,34 +1361,12 @@
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2200);
-  }
-
-  /* ===== ターミナル ===== */
-  function termCmd(cmd) {
-    if (logMap[cmd]) { goTo(logMap[cmd]); return; }
-    if (cmd.toUpperCase() === 'ARCHIVE') { goTo(36); return; }
-  }
-
-  function runCmd() {
-    const inp = document.getElementById('cmd-input');
-    if (!inp) return;
-    const val = inp.value.trim();
-    if (logMap[val]) { goTo(logMap[val]); return; }
-    if (val.toUpperCase() === 'ARCHIVE') { goTo(36); return; }
-    const res = document.getElementById('cmd-result');
-    if (res) res.innerHTML = '<p class="err">ERR: コマンド「' + val + '」は認識されませんでした。</p>';
-  }
-
-  function runCmd35() {
-    const inp = document.getElementById('cmd-input-35');
-    if (inp && inp.value.trim().toUpperCase() === 'ARCHIVE') { goTo(36); }
-    else if (inp) { inp.style.borderColor = '#f44'; }
+    setTimeout(() => t.classList.remove('show'), 2600);
   }
 
   function updateArchiveProgress() {
     const p = document.getElementById('archive-progress');
-    const btn = document.getElementById('to-45-btn');
+    const btn = document.getElementById('to-37-btn');
     if (!p) return;
     p.textContent = '閲覧済み：' + visitedFiles.size + ' / ' + allFiles.length + ' ファイル';
     if (allFiles.every(f => visitedFiles.has(f)) && btn) {
@@ -1224,19 +1374,26 @@
     }
   }
 
-  /* ===== 解答判定 ===== */
+  /* ===== 解答判定＋誤答ヒント ===== */
   function submitAnswer() {
     const name = document.getElementById('ans-name').value.trim();
     const wish = document.getElementById('ans-wish').value.trim();
     const err = document.getElementById('ans-err');
 
-    const nameOk = name.match(/藤井|山崎|Y\.Y|YY|ゆい|結衣/);
-    const wishOk = wish.match(/プロポーズ|結婚|婚|一緒|入籍|ゆびわ|指輪/);
+    const nameOk = /藤井|ふじい|フジイ|Y\.?\s?Y/i.test(name);
+    const wishOk = /プロポーズ|結婚|入籍|婚|夫婦|一緒になれ/.test(wish);
+    const mislead = /ずっと一緒|彼氏|カップル/.test(name + wish);
 
-    if (nameOk && wishOk) {
-      goTo(50);
+    if (nameOk && wishOk) { goTo(42); return; }
+
+    if (mislead && !wishOk && !nameOk) {
+      err.innerHTML = '類似の願いの記録を検出。しかし筆跡が一致しません。<br>対象は<b>左手</b>で筆記する人物です。その願いは、別の誰かのもの。';
+    } else if (nameOk && !wishOk) {
+      err.innerHTML = '名は一致。だが願いの内容が記録と整合しません。<br>10月11日の夜、彼女はノートに何と書いた？　翌日、何が起きた？';
+    } else if (!nameOk && wishOk) {
+      err.innerHTML = '願いは一致。だがその名の記録は存在しません。<br>……人間は、名前が変わることがあるのでしょうか。11月5日、カフェに届いた手紙の差出人は？';
     } else {
-      err.textContent = '記録が一致しません。もう少し探してみてください。';
+      err.innerHTML = '記録が一致しません。<br>青いリボンのバッグの足取りを、もう一度辿ってみてください。';
     }
   }
 
